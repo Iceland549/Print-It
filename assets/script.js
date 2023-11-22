@@ -30,3 +30,26 @@ arrowLeft.addEventListener('click', () => {
 arrowRight.addEventListener('click', () => {
   console.log("Clic sur la flèche droite");
 });
+
+
+// Select element for bullet points
+const sliderBullets = document.querySelector('.dots'); 
+
+// Count number of slides
+const numberOfSlides = slides.length;
+console.log('Nombre de slides :', numberOfSlides);
+
+// Boolean to create bullet points
+for (let i = 0; i < numberOfSlides; i++) {
+  const bullet = document.createElement('li'); // element li created
+  bullet.classList.add('dot'); // Class for all bullet points
+
+  if (i === 0) {
+    bullet.classList.add('dot_selected'); // Special class to first slide
+  }
+
+  sliderBullets.appendChild(bullet); // Add bullet point to parent
+}
+
+console.log('Bullet points created :', document.querySelectorAll('.dot').length);
+
