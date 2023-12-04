@@ -28,19 +28,34 @@ const numberOfSlides = slides.length;
 console.log('Nombre de slides :', numberOfSlides);
 
 
+// Index actuel de la slide affichée
+let currentIndex = 0;
+
 // Gestionnaire d'événements pour avancer à la slide suivante
 arrowRight.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % slides.length;
+  if (currentIndex === slides.length - 1) {
+    currentIndex = 0; // Revenir à la première slide si c'est la dernière
+  } else {
+    currentIndex++; // Passer à la slide suivante
+  }
+  
   updateSlide(currentIndex);
   updateDot(currentIndex);
 });
 
+
 // Gestionnaire d'événements pour revenir à la slide précédente
 arrowLeft.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  if (currentIndex === slides.length - 1) {
+    currentIndex = 0; // Revenir à la première slide si c'est la dernière
+  } else {
+    currentIndex--; // Passer à la slide suivante
+  }
+  
   updateSlide(currentIndex);
   updateDot(currentIndex);
 });
+
 
 // Créer des dots pour chaque slide
 for (let i = 0; i < numberOfSlides; i++) {
@@ -56,8 +71,6 @@ for (let i = 0; i < numberOfSlides; i++) {
 
 console.log('Bullet points created :', document.querySelectorAll('.dot').length);
 
-// Index actuel de la slide affichée
-let currentIndex = 0;
 
 // Mettre à jour l'image et le texte de la slide actuelle
 function updateSlide(index) {
