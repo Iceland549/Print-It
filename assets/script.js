@@ -31,9 +31,9 @@ let currentIndex = 0;
 // Gestionnaire d'événements pour avancer à la slide suivante
 arrowRight.addEventListener("click", () => {
   if (currentIndex === slides.length - 1) {
-    currentIndex = 0; // Revenir à la première slide si c'est la dernière
+    currentIndex = 0;  
   } else {
-    currentIndex++; // Passer à la slide suivante
+    currentIndex++;  
   }
 
   updateSlide(currentIndex);
@@ -43,9 +43,9 @@ arrowRight.addEventListener("click", () => {
 // Gestionnaire d'événements pour revenir à la slide précédente
 arrowLeft.addEventListener("click", () => {
   if (currentIndex === 0) {
-    currentIndex = slides.length - 1; // Revenir à la dernière slide si c'est la première
+    currentIndex = slides.length - 1;  
   } else {
-    currentIndex--; // Passer à la slide suivante
+    currentIndex--;  
   }
 
   updateSlide(currentIndex);
@@ -54,14 +54,14 @@ arrowLeft.addEventListener("click", () => {
 
 // Créer des dots pour chaque slide
 for (let i = 0; i < numberOfSlides; i++) {
-  const bullet = document.createElement("li"); // création des éléments li
-  bullet.classList.add("dot"); // Ajoute la classe dot pour chaque point
+  const bullet = document.createElement("span");  
+  bullet.classList.add("dot");  
 
   if (i === 0) {
-    bullet.classList.add("dot_selected"); // Ajoute la classe dot_selected pour la slide actuelle
+    bullet.classList.add("dot_selected");  
   }
 
-  sliderBullets.appendChild(bullet); // Ajoute le bullet au parent sliderBullets
+  sliderBullets.appendChild(bullet);  
 
   // Ajouter des écouteurs d'événements à chaque dot
   bullet.addEventListener("click", () => {
