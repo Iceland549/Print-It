@@ -30,26 +30,26 @@ let currentIndex = 0;
 
 // Gestionnaire d'événements pour avancer à la slide suivante
 arrowRight.addEventListener("click", () => {
-  console.log("Flèche droite cliquée");
   if (currentIndex === slides.length - 1) {
     currentIndex = 0;  
   } else {
     currentIndex++;  
   }
 
+  console.log(`Flèche droite cliquée - Index image : ${currentIndex}`);
   updateSlide(currentIndex);
   updateDot(currentIndex);
 });
 
 // Gestionnaire d'événements pour revenir à la slide précédente
 arrowLeft.addEventListener("click", () => {
-  console.log("Flèche gauche cliquée");
   if (currentIndex === 0) {
     currentIndex = slides.length - 1;  
   } else {
     currentIndex--;  
   }
 
+  console.log(`Flèche gauche cliquée - Index image : ${currentIndex}`);
   updateSlide(currentIndex);
   updateDot(currentIndex);
 });
